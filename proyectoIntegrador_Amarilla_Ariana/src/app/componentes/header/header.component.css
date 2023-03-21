@@ -1,0 +1,10 @@
+div{
+    background: rgb(165,135,214);
+background: linear-gradient(90deg, rgba(165,135,214,1) 0%, rgba(233,135,201,1) 43%, rgba(255,143,170,1) 86%);
+
+    
+}
+app-redes-sociales{
+    float: right;
+    margin-top: 20px;
+}
