@@ -26,10 +26,12 @@
             ],
             "styles": [
               "src/styles.css" ,
-              "proyectoIntegrador_Amarilla_Ariana/node_modules/bootstrap/dist/css/bootstrap.css"
+              "app/node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
-              "proyectoIntegrador_Amarilla_Ariana/node_modules/bootstrap/dist/js/bootstrap.js"
+              "app/node_modules/jquery/dist/jquery.min.js",
+             "app/node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "app/node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
