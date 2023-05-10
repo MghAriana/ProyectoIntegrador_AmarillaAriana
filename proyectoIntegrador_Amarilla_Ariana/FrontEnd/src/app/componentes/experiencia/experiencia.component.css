@@ -2,8 +2,9 @@
     padding: 15px;
 }
 div{
+
     background-color:  rgb(240, 134, 205);
 }
-h1, h3{
+h1{
     display: inline;
 }
