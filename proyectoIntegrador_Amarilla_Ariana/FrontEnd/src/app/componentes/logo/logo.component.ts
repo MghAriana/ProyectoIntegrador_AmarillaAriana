@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-logo',
@@ -7,15 +8,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./logo.component.css']
 })
 export class LogoComponent {
+  isLogged = false;
 
-  constructor(private router:Router){}
+
+  constructor(private router:Router, private tokenService:TokenService){}
 
  ngOnInit(): void {
-  //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-  //Add 'implements OnInit' to the class.
-  
- }
+  if(this.tokenService.getToken()){
+    this.isLogged=true;
+  }else{
+    this.isLogged = false;
+    }
+  }
+
  login(){
   this.router.navigate(['/login'])
  }
+
+ onLogout():void{
+  this.tokenService.logOut();
+  window.location.reload();
+ }
+
 }

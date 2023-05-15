@@ -2,11 +2,13 @@
 package com.PortfolioA.miprimerproyecto.Security.jwt;
 
 import com.PortfolioA.miprimerproyecto.Security.Service.UserDetailsImpl;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
 import java.io.IOException;
+import javax.servlet.Filter;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 
-public class JwtTokenFilter extends OncePerRequestFilter {
+public class JwtTokenFilter extends OncePerRequestFilter implements Filter {
     private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
     
     @Autowired
@@ -24,8 +26,15 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Autowired
     UserDetailsImpl  userDetailsServiceImpl;
 
+    private String getToken(jakarta.servlet.http.HttpServletRequest request) {
+        String header = request.getHeader("Autorization");
+        if(header != null && header.startsWith("Bearer"))
+            return header.replace("Bearer", "");
+        return null;
+    }
+
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, jakarta.servlet.FilterChain filterChain) throws jakarta.servlet.ServletException, IOException {
         try{
             String token = getToken(request);
             if( token != null && jwtProvider.validateToken(token)){
@@ -41,10 +50,13 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private String getToken(HttpServletRequest request) {
-        String header = request.getHeader("Autorization");
-        if(header != null && header.startsWith("Bearer"))
-            return header.replace("Bearer", "");
-        return null;
+    @Override
+    public void init(FilterConfig fc) throws ServletException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void doFilter(ServletRequest sr, ServletResponse sr1, FilterChain fc) throws IOException, ServletException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
