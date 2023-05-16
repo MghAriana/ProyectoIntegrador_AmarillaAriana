@@ -26,7 +26,7 @@ public class Educacion {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(int id){
         this.id = id;
     }
 
@@ -34,7 +34,7 @@ public class Educacion {
         return nombreE;
     }
 
-    public void setNombreE(String nombreE) {
+    public void setNombreE(String nombreE){
         this.nombreE = nombreE;
     }
 
