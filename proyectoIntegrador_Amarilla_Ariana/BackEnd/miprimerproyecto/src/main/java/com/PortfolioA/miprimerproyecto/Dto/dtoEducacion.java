@@ -1,7 +1,8 @@
 
 package com.PortfolioA.miprimerproyecto.Dto;
 
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
+
 
 
 public class dtoEducacion {

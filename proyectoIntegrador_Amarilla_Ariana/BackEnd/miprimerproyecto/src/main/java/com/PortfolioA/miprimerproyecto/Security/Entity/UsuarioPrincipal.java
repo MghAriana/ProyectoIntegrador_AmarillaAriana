@@ -13,15 +13,15 @@ public class UsuarioPrincipal implements UserDetails {
     private String nombreUsuario;
     private String email;
     private String password;
-    private final Collection<? extends GrantedAuthority> authorities;
+    private  Collection<? extends GrantedAuthority> authorities;
 
     //constructor
     public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
-        this.nombre = nombre;
-        this.nombreUsuario = nombreUsuario;
-        this.email = email;
-        this.password = password;
-        this.authorities = authorities;
+        this.nombre = nombre ;
+        this.nombreUsuario = nombreUsuario ;
+        this.email = email ;
+        this.password = password ;
+        this.authorities = authorities ;
     }
 
     public static UsuarioPrincipal build(Usuario usuario) {

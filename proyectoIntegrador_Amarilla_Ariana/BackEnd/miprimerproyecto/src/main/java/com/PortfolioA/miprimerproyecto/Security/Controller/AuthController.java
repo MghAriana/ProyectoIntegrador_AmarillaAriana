@@ -10,9 +10,10 @@ import com.PortfolioA.miprimerproyecto.Security.Enums.RolNombre;
 import com.PortfolioA.miprimerproyecto.Security.Service.RolService;
 import com.PortfolioA.miprimerproyecto.Security.Service.UsuarioService;
 import com.PortfolioA.miprimerproyecto.Security.jwt.JwtProvider;
-import jakarta.validation.Valid;
+
 import java.util.HashSet;
 import java.util.Set;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

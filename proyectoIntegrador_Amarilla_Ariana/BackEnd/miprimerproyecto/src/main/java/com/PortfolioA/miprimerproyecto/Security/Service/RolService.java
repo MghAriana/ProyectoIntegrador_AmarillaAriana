@@ -4,10 +4,11 @@ package com.PortfolioA.miprimerproyecto.Security.Service;
 import com.PortfolioA.miprimerproyecto.Security.Entity.Rol;
 import com.PortfolioA.miprimerproyecto.Security.Enums.RolNombre;
 import com.PortfolioA.miprimerproyecto.Security.Repository.iRolRepository;
-import jakarta.transaction.Transactional;
+
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
