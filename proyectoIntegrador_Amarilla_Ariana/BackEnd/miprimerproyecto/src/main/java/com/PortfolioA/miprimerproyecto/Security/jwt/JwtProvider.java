@@ -11,6 +11,8 @@ import io.jsonwebtoken.security.SignatureException;
 import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,7 +41,7 @@ public String generateToken(Authentication authentication) {
             .setSubject(usuarioPrincipal.getUsername())
             .setIssuedAt(now)
             .setExpiration(expiryDate)
-            .signWith(Keys.hmacShaKeyFor(secret.getBytes()), SignatureAlgorithm.HS512)
+            .signWith(SignatureAlgorithm.HS512, secret)
             .compact();
 }
 

@@ -28,47 +28,50 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class AuthController {
-@Autowired
-PasswordEncoder passwordEncoder;
-@Autowired 
-AuthenticationManager authenticationManager;
-@Autowired 
-UsuarioService usuarioService;
-@Autowired
-JwtProvider jwtProvider;
-@Autowired
-RolService rolService; 
+    @Autowired
+    PasswordEncoder passwordEncoder;
+    @Autowired 
+    AuthenticationManager authenticationManager;
+    @Autowired 
+    UsuarioService usuarioService;
+    @Autowired
+    JwtProvider jwtProvider;
+    @Autowired
+    RolService rolService; 
 
     @PostMapping("/nuevo")
-    public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity(new Mensaje("Datos invalidos"),HttpStatus.BAD_REQUEST);
-        }
-        if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())) {
-            return new ResponseEntity(new Mensaje("El nombre de usuario ya existe"),HttpStatus.BAD_REQUEST);
-        }
-        if (usuarioService.existsByEmail(nuevoUsuario.getEmail())) {
-            return new ResponseEntity(new Mensaje("El email ya existe"),HttpStatus.BAD_REQUEST);
-        }
+     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
+        if(bindingResult.hasErrors())
+            return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"),HttpStatus.BAD_REQUEST);
         
-        Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(), nuevoUsuario.getEmail(),
-        passwordEncoder.encode(nuevoUsuario.getPassword()));
+        if(usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario()))
+            return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
+        
+        if(usuarioService.existsByEmail(nuevoUsuario.getEmail()))
+            return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
+        
+        Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
+            nuevoUsuario.getEmail(), passwordEncoder.encode(nuevoUsuario.getPassword()));
         
         Set<Rol> roles = new HashSet<>();
-        
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
         
         if(nuevoUsuario.getRoles().contains("admin"))
-               roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
+            roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
         usuario.setRoles(roles);
         usuarioService.save(usuario);
         
         return new ResponseEntity(new Mensaje("Usuario guardado"),HttpStatus.CREATED);
     }
+
+    @PostMapping("/login")
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Datos invalidos"),HttpStatus.BAD_REQUEST);
