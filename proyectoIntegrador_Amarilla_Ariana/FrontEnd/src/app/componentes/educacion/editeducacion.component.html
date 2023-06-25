@@ -1,4 +1,4 @@
-<div class="container" ngIf="educacion">
+<div class="container" *ngIf="educacion">
     <div class="row">
         <div>
             <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
