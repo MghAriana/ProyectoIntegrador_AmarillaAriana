@@ -24,6 +24,7 @@ import { EditeducacionComponent } from './componentes/educacion/editeducacion.co
 import { EditSkillComponent } from './componentes/hys/edit-skill.component';
 import { NewSkillComponent } from './componentes/hys/new-skill.component';
 import { CommonModule } from '@angular/common';
+import { EditAcercDeComponent } from './componentes/acerca-de/edit-acerc-de.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { CommonModule } from '@angular/common';
     EditeducacionComponent,
     EditSkillComponent,
     NewSkillComponent,
+    EditAcercDeComponent,
   ],
   imports: [
     CommonModule,

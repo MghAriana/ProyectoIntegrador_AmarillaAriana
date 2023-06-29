@@ -2,14 +2,17 @@
     /* fallback for old browsers */
     background: #f890fc ;
     
-    /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, #f743d0, #d551a6, #dd3675, #b44593);
     
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, #ff7cd8, #f897e8, #dd3675, #b44593);
     }
-    
-    @media (min-width: 768px) {
+   .compw{
+    text-align: center;
+    padding: 30px ;
+
+   }
+  @media (min-width: 768px) {
     .row{
     height: 100vh !important;
     }
@@ -18,5 +21,5 @@
     .row{
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
-    }
-    }
+    }}
+   

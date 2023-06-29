@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MiprimerproyectoApplication<miprimerproyecto>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.PortfolioA.miprimerproyecto.MiprimerproyectoApplication",
+            "projectName": "miprimerproyecto",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
