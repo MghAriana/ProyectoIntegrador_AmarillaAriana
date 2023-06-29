@@ -1,7 +1,28 @@
+
 .row{
-    padding: 20px;
-}
-div{
-    background-color: rgb(241, 138, 207);
+    padding: 50px;
+  }
+  
+  
+  .bg-custom{
+    padding: 50px;
+    background-color:  #e4a3f8a9;
     text-align: center;
-}
+  }
+  body {
+    background: #f890fc ;
+      
+    background: -webkit-linear-gradient(to right, #f743d0, #d551a6, #dd3675, #b44593);
+    
+    background: linear-gradient(to right, #ff7cd8, #f897e8, #dd3675, #b44593);
+    
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  
+  }
