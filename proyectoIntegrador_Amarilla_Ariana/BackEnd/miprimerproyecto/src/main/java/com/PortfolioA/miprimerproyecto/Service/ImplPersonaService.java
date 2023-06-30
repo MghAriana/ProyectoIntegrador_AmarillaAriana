@@ -24,7 +24,7 @@ public class ImplPersonaService{
     }
     
     public Optional<Persona> getByNombre(String nombre){
-        return ipersonaRepository.findByNombreE(nombre);
+        return ipersonaRepository.findByNombre(nombre);
     }
     
     public void save(Persona persona){
@@ -39,8 +39,8 @@ public class ImplPersonaService{
         return ipersonaRepository.existsById(id);
     }
     
-    public boolean existByNombreE(String nombre){
-        return ipersonaRepository.existsByNombreE(nombre);
+    public boolean existByNombre(String nombre){
+        return ipersonaRepository.existsByNombre(nombre);
     }
     
 }

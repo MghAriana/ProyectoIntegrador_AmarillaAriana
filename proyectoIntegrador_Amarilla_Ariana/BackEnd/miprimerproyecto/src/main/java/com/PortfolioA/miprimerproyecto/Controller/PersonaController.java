@@ -77,7 +77,7 @@ public class PersonaController {
         if(!personaService.existById(id)){
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        if(personaService.getByNombre(dtopersona.getNombre()).get().getId() != id && personaService.existByNombreE(dtopersona.getNombre())){
+        if(personaService.getByNombre(dtopersona.getNombre()).get().getId() != id && personaService.existByNombre(dtopersona.getNombre())){
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
         if(StringUtils.isBlank(dtopersona.getNombre())){
