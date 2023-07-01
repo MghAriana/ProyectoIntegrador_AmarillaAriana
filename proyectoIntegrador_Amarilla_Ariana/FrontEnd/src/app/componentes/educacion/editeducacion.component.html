@@ -1,5 +1,5 @@
 <body>
-    <div class="wrapper fadeInDown">
+    <div class="wrapper fadeInDown" *ngIf="educacion">
         <div id="formContent">
         <!-- Edit Form -->
         <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">

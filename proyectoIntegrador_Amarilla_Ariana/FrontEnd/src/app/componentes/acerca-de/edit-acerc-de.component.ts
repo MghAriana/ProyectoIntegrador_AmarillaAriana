@@ -15,7 +15,7 @@ export class EditAcercDeComponent implements OnInit{
 
   constructor(private activatedRouter:ActivatedRoute,
                private personaService:PersonaService, private router : Router,
-               public imageService:ImageService){}
+               private imageService:ImageService){}
 
   ngOnInit(): void {
     const id = this.activatedRouter.snapshot.params['id'];
@@ -47,6 +47,7 @@ export class EditAcercDeComponent implements OnInit{
   uploadImage($event:any){
     const id = this.activatedRouter.snapshot.params['id'];
     const name = "perfil_" + id;
-    this.imageService.uploadImage($event, name);
+    console.log($event)
+    //this.imageService.uploadImage($event, name);
   }
 }

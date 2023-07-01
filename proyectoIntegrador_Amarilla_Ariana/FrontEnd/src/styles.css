@@ -3,6 +3,18 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+body{
+  background-color: #ffd7fa;
+}
+.card-generic{
+  text-align: center;
+  box-shadow: -6px 0px 55px 0px rgba(0,0,0,0.58);
+  -webkit-box-shadow: -6px 0px 55px 0px rgba(0,0,0,0.58);
+  -moz-box-shadow: -6px 0px 55px 0px rgba(0,0,0,0.58);
+  margin: 64px 100px 50px 100px;
+  background-color: #fbc7ee;
+}
+
 /* TABLAS */
 td{
   text-align: initial;

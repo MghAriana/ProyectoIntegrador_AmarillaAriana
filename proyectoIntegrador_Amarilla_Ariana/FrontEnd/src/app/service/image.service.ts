@@ -8,9 +8,9 @@ import { getDownloadURL } from '@firebase/storage';
 export class ImageService {
   url:string ="";
 
-  constructor(private storage: Storage) { }
+  constructor() { }
 
-  public uploadImage($event:any, name:string ){
+  /* public uploadImage($event:any, name:string ){
     const file = $event.target.file[0]
     const imgRef = ref(this.storage , `imagen/` + name )
     console.log(file);
@@ -30,6 +30,6 @@ export class ImageService {
     })
     .catch(error =>console.log(error)
     )
-  }
+  } */
 
 }

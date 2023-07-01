@@ -1,33 +1,22 @@
 <body>
-<div class="container" *ngIf="persona">
-    <div class="row col-lg-8 offset-2">
-        <div bg-custom>
-            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre </label>
-                    <input type="text" class="form-control col-lg-6 offset-3" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="apellido">Apellido</label>
-                    <input type="text" class="form-control col-lg-6 offset-3" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
-                </div>
-                <div class="form-group">
-                    <label for="apellido">Descripcion </label>
-                    <input type="text" class="form-control col-lg-6 offset-3" id="descripcion " name="descripcion" [(ngModel)]="persona.descripcion" required>
-                </div>  
-                <div class="form-group">
-                    <label for="img">imagen</label>
-                    <input type="file" class="form-control" id="img" name="img" [(ngModel)]="persona.img"  (change)="uploadImage($event)" accept=".jpg , .jpeg, .png" >
-                </div>
-                <div class="imagen">
-                    <img [src]="imageService.url" width="200px">
-                </div>
+    <div class="wrapper fadeInDown" *ngIf="persona">
+        <div id="formContent">
+        <!-- Edit Form -->
+        <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+            <label for="nombre">Nombre </label>
+            <input type="text" class="form-control col-lg-6 offset-3" id="nombre" name="nombre" [(ngModel)]="persona.nombre" required>
+            
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control col-lg-6 offset-3" id="apellido" name="apellido" [(ngModel)]="persona.apellido" required>
 
-                <button class="btn btn-primary">
-                    Editar persona
-                </button>
-            </form>
-        </div>
+            <label for="apellido">Descripcion </label>
+            <input type="text" class="form-control col-lg-6 offset-3" id="descripcion " name="descripcion" [(ngModel)]="persona.descripcion" required>
+
+            <label for="img">imagen</label>
+            <input type="file" class="form-control" id="img" name="img" [(ngModel)]="persona.img"  (change)="uploadImage($event)" accept=".jpg , .jpeg, .png" >
+
+            <input type="submit" class="fadeIn fourth" value="Editar persona">
+        </form>
     </div>
-</div>
+  </div>
 </body>

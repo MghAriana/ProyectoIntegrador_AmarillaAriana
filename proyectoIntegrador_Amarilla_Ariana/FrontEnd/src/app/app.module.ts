@@ -25,6 +25,9 @@ import { EditSkillComponent } from './componentes/hys/edit-skill.component';
 import { NewSkillComponent } from './componentes/hys/new-skill.component';
 import { CommonModule } from '@angular/common';
 import { EditAcercDeComponent } from './componentes/acerca-de/edit-acerc-de.component';
+import { ImageService } from './service/image.service';
+import{ StorageModule } from '@angular/fire/storage';
+
 
 @NgModule({
   declarations: [
@@ -70,10 +73,11 @@ import { EditAcercDeComponent } from './componentes/acerca-de/edit-acerc-de.comp
       "startFromZero": false,
       "lazy": true}),
       HttpClientModule, 
-      FormsModule,
+      FormsModule, 
+      StorageModule
   ],
   providers: [
-    interceptorProvider,
+    interceptorProvider
   ],
   bootstrap: [AppComponent]
 })

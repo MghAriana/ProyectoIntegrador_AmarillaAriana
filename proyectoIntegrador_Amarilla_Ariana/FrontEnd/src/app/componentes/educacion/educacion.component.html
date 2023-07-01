@@ -1,4 +1,4 @@
-<div class="row">
+<!--<div class="row">
     <h1>Educacion</h1>
     
     <div class="col-lg-2">
@@ -29,5 +29,40 @@
                 </tr>
             </tbody>  
         </table>      
+    </div>
+</div>-->
+
+<div class="row">
+    <h1>Educacion</h1>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dark" routerLink="/nuevaedu" *ngIf="isLogged">
+            Nueva Experiencia
+        </button>
+    </div>
+    
+    <div class="row" *ngFor="let Educacion of educacion">
+        <div class="col-sm-6">
+          <div class="card card-generic">
+            <div class="card-body">
+              <h2 class="card-title">{{Educacion.nombreE}}</h2>
+              <p class="card-text">{{Educacion.descripcionE}}</p>
+    
+              <button *ngIf="isLogged" 
+                      class="btn btn-danger" 
+                      (click)="borrar(Educacion.id)">
+                <i class="bi bi-trash-fill">
+                    BORRAR
+                </i> 
+              </button>
+    
+              <button *ngIf="isLogged" 
+                      class="btn btn-light" 
+                      routerLink="/editedu/{{Educacion.id}}">
+                <i class="bi bi-pencil-fill">EDITAR</i> 
+              </button>
+              
+            </div>
+          </div>
+        </div>
     </div>
 </div>

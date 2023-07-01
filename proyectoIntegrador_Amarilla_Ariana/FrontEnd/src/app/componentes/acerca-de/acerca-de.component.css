@@ -1,10 +1,6 @@
 .row{
     padding: 20px;
 }
-div{
-    background-color: rgb(240, 134, 205);
-    text-align: center;
-}
 #nombre{
     font-weight: bold;
     font-family:  Georgia, serif;
@@ -15,10 +11,11 @@ div{
     #fotoperfil{
         position: absolute;
         width: 15%;
+        z-index: 1;
         border-radius: 100%;
         box-shadow: 3px 3px 3px gray;
         left: 2%;
-        top:350px
+        top:325px
     }
     .descripcion{
         display: flex;
@@ -31,6 +28,7 @@ div{
     #fotoperfil{
         position: absolute;
         width: 35%;
+        z-index: 1;
         border-radius: 100%;
         box-shadow: 3px 3px 3px gray;
         left: 32%;
