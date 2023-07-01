@@ -1,5 +1,5 @@
 export const environment ={ 
-    production:false,
+    production:true,
 
-    URL:'link  render'
+    URL:'back-end-production-79ee.up.railway.app'
 }
